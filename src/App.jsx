@@ -10,6 +10,7 @@ import Header from './compunent/header/Header'
 
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
+  const [redingTime, setRedingTime] = useState(0);
 
   const HandelBookmarks = blog => {
 
@@ -17,15 +18,20 @@ function App() {
     setBookmarks(NewBookmarks)
 
   }
+  const HandelRedingTime = time => {
+    const NewTime = redingTime + time
+    // console.log(NewTime)
+    setRedingTime(NewTime)
 
+  }
 
 
   return (
     <>
       <Header></Header>
       <main className='md:flex max-w-7xl mx-auto'>
-        <Blogs HandelBookmarks={HandelBookmarks} ></Blogs>
-        <Bookmarks bookmarks={bookmarks} ></Bookmarks>
+        <Blogs HandelBookmarks={HandelBookmarks} HandelRedingTime={HandelRedingTime} ></Blogs>
+        <Bookmarks bookmarks={bookmarks} redingTime={redingTime} ></Bookmarks>
 
       </main>
     </>
