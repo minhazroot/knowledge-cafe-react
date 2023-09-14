@@ -18,10 +18,13 @@ function App() {
     setBookmarks(NewBookmarks)
 
   }
-  const HandelRedingTime = time => {
+  const HandelRedingTime = (id, time) => {
     const NewTime = redingTime + time
-    // console.log(NewTime)
     setRedingTime(NewTime)
+    //remove the read blog from bookmark 
+    // console.log('remove bookmark id', id)
+    const ReaminingBookmark = bookmarks.filter(bookmark => bookmark.id != id);
+    setBookmarks(ReaminingBookmark);
 
   }
 
